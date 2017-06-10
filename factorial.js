@@ -75,6 +75,20 @@ const f9 = (helper) => {
 factorials.push(f9(f9_helper)) // instead of passing f9, we pass the helper!
 
 
+// extract "function calling itself" to HOF
+const f10_helper = (rec) => (n) => n < 2 ? 1 : n * rec(n - 1)
+const f10 = (helper) => {
+  return (
+    (g) => g(g)
+  )(
+    (f) =>
+      (n) =>
+        helper(f(f))(n)
+  )
+}
+factorials.push(f10(f10_helper))
+
+
 
 
 module.exports = {factorials}
