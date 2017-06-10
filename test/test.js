@@ -28,3 +28,18 @@ describe('fibonacci functions', function() {
     })
   })
 })
+
+const pascals = require('../pascal').pascals
+
+describe('pascal functions', function() {
+  pascals.forEach(pascal => {
+    it('should properly output values', function() {
+      const expected = [1, 2, 4, 7, 14, 50]
+      const actual = [[1, 1], [1, 2], [2, 2], [2, 3], [3, 3], [4, 4]].map(a => pascal(a[0])(a[1]))
+
+      expected.forEach((exp, i) => {
+        assert.equal(exp, actual[i])
+      })
+    })
+  })
+})
