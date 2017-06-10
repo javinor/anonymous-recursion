@@ -12,5 +12,13 @@ const f2 = (f, n) => {
 factorials.push(n => f2(f2, n))
 
 
+// curried factorial
+const f3 = (f) => (n) => {
+  return n < 2 ? 1 : n * f(f)(n - 1)
+}
+factorials.push(f3(f3))
+
+
+
 
 module.exports = {factorials}
