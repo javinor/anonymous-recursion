@@ -19,6 +19,13 @@ const f3 = (f) => (n) => {
 factorials.push(f3(f3))
 
 
+// make the inner factorial calculation point free
+const f4 = (f) => (n) => {
+  return ((g, n) => n < 2 ? 1 : n * g(g)(n - 1))(f, n)
+}
+factorials.push(f4(f4))
+
+
 
 
 module.exports = {factorials}
