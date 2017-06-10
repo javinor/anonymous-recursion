@@ -48,6 +48,16 @@ const f7 = (f) => (n) => {
 factorials.push(f7(f7))
 
 
+// extract (point-free) inner function
+const f8_helper = (rec) => (n) => n < 2 ? 1 : n * rec(n - 1)
+const f8 =
+  (f) =>
+    (n) => {
+      return f8_helper(f(f))(n)
+    }
+factorials.push(f8(f8))
+
+
 
 
 module.exports = {factorials}
