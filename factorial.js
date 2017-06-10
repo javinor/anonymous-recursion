@@ -99,4 +99,22 @@ const Y = (helper) => {
 factorials.push(Y(curriedRecursiveFactorial))
 
 
+// starting again from f2
+factorials.push(n => f2(f2, n))
+factorials.push(
+  m =>
+    ((f, n) => n < 2 ? 1 : n * f(f, n - 1))
+    ((f, n) => n < 2 ? 1 : n * f(f, n - 1), m)
+)
+factorials.push(
+  m =>
+    (g => g(g, m))(
+      (f, n) => n < 2 ? 1 : n * f(f, n - 1)
+    )
+)
+factorials.push(m => (g => g(g, m))((f, n) => n < 2 ? 1 : n * f(f, n - 1)))
+
+
+
+
 module.exports = {factorials}
