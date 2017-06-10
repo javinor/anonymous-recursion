@@ -33,6 +33,13 @@ const f5 = (f) => (n) => {
 factorials.push(f5(f5))
 
 
+// curry inner factorial function
+const f6 = (f) => (n) => {
+  return ((rec) => (n) => n < 2 ? 1 : n * rec(n - 1))(f(f))(n)
+}
+factorials.push(f6(f6))
+
+
 
 
 module.exports = {factorials}
