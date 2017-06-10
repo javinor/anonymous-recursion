@@ -89,6 +89,14 @@ const f10 = (helper) => {
 factorials.push(f10(f10_helper))
 
 
+// renaming and cleanup
+const curriedRecursiveFactorial = (rec) => (n) => n < 2 ? 1 : n * rec(n - 1)
+const Y = (helper) => {
+  return (g => g(g))(
+    f => n => helper(f(f))(n)
+  )
+}
+factorials.push(Y(curriedRecursiveFactorial))
 
 
 module.exports = {factorials}
