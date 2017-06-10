@@ -58,6 +58,23 @@ const f8 =
 factorials.push(f8(f8))
 
 
+// pass inner function as argument
+const f9_helper = (rec) => (n) => n < 2 ? 1 : n * rec(n - 1)
+const f9 = (helper) => {
+  // the returned value is equivalent to the previous `f8(f8)`
+  return (
+    (f) =>
+      (n) =>
+        helper(f(f))(n)
+  )(
+    (f) =>
+      (n) =>
+        helper(f(f))(n)
+  )
+}
+factorials.push(f9(f9_helper)) // instead of passing f9, we pass the helper!
+
+
 
 
 module.exports = {factorials}
