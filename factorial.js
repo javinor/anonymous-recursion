@@ -26,6 +26,13 @@ const f4 = (f) => (n) => {
 factorials.push(f4(f4))
 
 
+// rename & reorder arguments in inner factorial function
+const f5 = (f) => (n) => {
+  return ((rec, n) => n < 2 ? 1 : n * rec(n - 1))(f(f), n)
+}
+factorials.push(f5(f5))
+
+
 
 
 module.exports = {factorials}
