@@ -40,6 +40,14 @@ const f6 = (f) => (n) => {
 factorials.push(f6(f6))
 
 
+// name inner function
+const f7 = (f) => (n) => {
+  const q = (rec) => (n) => n < 2 ? 1 : n * rec(n - 1)
+  return q(f(f))(n)
+}
+factorials.push(f7(f7))
+
+
 
 
 module.exports = {factorials}
