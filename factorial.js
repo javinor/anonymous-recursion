@@ -115,6 +115,20 @@ factorials.push(
 factorials.push(m => (g => g(g, m))((f, n) => n < 2 ? 1 : n * f(f, n - 1)))
 
 
+// starting again from f3
+// f => n => n < 2 ? 1 : n * f(f)(n - 1)
+factorials.push(f3(f3))
+factorials.push(
+  (f => n => n < 2 ? 1 : n * f(f)(n - 1))(
+    f => n => n < 2 ? 1 : n * f(f)(n - 1)
+  )
+)
+factorials.push(
+  (g => g(g))(
+    f => n => n < 2 ? 1 : n * f(f)(n - 1)
+  )
+)
+factorials.push((g => g(g))(f => n => n < 2 ? 1 : n * f(f)(n - 1)))
 
 
 module.exports = {factorials}
